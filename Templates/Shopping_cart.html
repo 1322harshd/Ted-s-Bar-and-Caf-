@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="shopping-cart">
+  <h1>Shopping Cart</h1>
+
+  <div class="cart-items">
+    {% for item in cart_items %}
+    <div class="cart-item">
+      <img src="{{ url_for('static', filename='images/' ~ item.image) }}" alt="{{ item.name }}">
+      <div class="item-details">
+        <h2>{{ item.name }}</h2>
+        <label for="quantity-{{ loop.index }}">Quantity</label>
+        <input type="number" id="quantity-{{ loop.index }}" name="quantity-{{ item.id }}" value="{{ item.quantity }}" min="1">
+        <p>Price: $<span class="item-price">{{ item.price }}</span></p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="cart-summary">
+    <p>Sub Total: $<span id="sub-total">{{ subtotal }}</span></p>
+    <p>TAXES (Included GST): $<span id="taxes">{{ taxes }}</span></p>
+    <p>Other charges: $<span id="other-charges">{{ other_charges }}</span></p>
+    <p><strong>Total Amount: $<span id="total-amount">{{ total }}</span></strong></p>
+    <button id="proceed-pay">Proceed with Pay</button>
+  </div>
+
+  <div class="feedback">
+    <p><strong>We Value Your Feedback!</strong></p>
+    <p>Your thoughts help us grow and improve. Click the link below to share your feedback, suggestions, or ideas for future improvements—we're all ears!</p>
+    <a href="{{ url_for('feedback') }}">Share Your Feedback</a>
+    <p>Thank you for helping us make things better!</p>
+  </div>
+</div>
+{% endblock %}
+
+.shopping-cart {
+  width: 70%;
+  margin: 30px auto;
+  background-color: #fff8f0;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  font-family: 'open sans', sans-serif;
+}
+
+.shopping-cart h1 {
+  text-align: center;
+  color: #5c1a1b;
+  margin-bottom: 30px;
+}
+
+.cart-items {
+  margin-bottom: 30px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  background-color : E8D6B9;}
