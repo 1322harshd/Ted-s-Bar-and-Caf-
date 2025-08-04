@@ -1,0 +1,109 @@
+/* webpage*/
+body{
+     font-family: 'Open Sans', sans-serif;
+     background-color: rgba(230, 222, 211, 1);
+}
+/* navigation bar */
+nav {
+  display: flex;
+  justify-content: center;  
+  align-items: center;     
+  height: 70px;             
+  background-color: rgba(87, 21, 35, 1);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: rgba(255, 253, 252, 1);
+  font-weight: bold;
+  font-size: x-large;
+  padding: 8px 50px;
+  border-radius: 5px;
+}
+/* footer */
+footer{
+     margin-top: 10px;
+     width:100%;
+     background-color: rgba(87, 21, 35, 1);
+     height:350px;
+     position:relative;
+}
+/* alignment of footer elements */
+.footer-logo{
+     position:absolute;
+     left:0;
+     top:0;
+     margin-right: 0;
+     padding-right: 0;
+}
+.sub-class-footer{
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-around; 
+  align-items: center; 
+}
+.shop-info{
+  display: inline-block;
+  margin-right: 10px; 
+  margin-top:20px;
+  margin-left: 0;
+}
+/* shop name and copyright */
+.shop-info p{
+     font-size:larger;
+     color:rgba(255, 253, 252, 1);
+}
+/* contact details */
+.shop-info address a{
+     text-decoration: none;
+     font-size:larger;
+     color:rgba(255, 253, 252, 1);
+
+}
+/* social media section*/
+.social-media{
+  display: inline-block;
+  margin-right: 10px; 
+  display:flex;
+}
+.social-media ul{
+     list-style: none;
+     display:flex;
+     gap:10px;
+}
+/* quick access links */
+.footer-links{
+  display: inline-block;
+  margin-right: 10px; 
+ 
+}
+.footer-links ul{
+ list-style:none;
+}
+.footer-links a{
+     text-decoration: none;
+     color:rgba(255, 253, 252, 1);
+     font-size: x-large;
+     font-style:italic;
+}
+/* policy links */
+.policies ul {
+     margin-top: 50px;
+     display:flex;
+     justify-content: center;
+     list-style:none;
+}
+.policies ul a{
+     text-decoration: none;
+     color:rgba(255, 253, 252, 1);
+
+}
+ 
