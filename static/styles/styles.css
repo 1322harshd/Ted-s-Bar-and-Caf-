@@ -158,7 +158,7 @@ footer{
      margin-bottom:20px;
      text-align: justify;
 }
-<<<<<<< Updated upstream
+
 /* --- Contact Page Styles --- */
 
 
@@ -422,15 +422,10 @@ footer{
 .feedback-thank {
   color: #5c1a1b;
   font-weight: bold;
-=======
+}
 .history h1{
      text-align: center;
      font-style: bold;
      color:rgba(87, 21, 35, 1);
 
-}
-/* image in about page */
-figure {
-     margin:0 0 0 0;
->>>>>>> Stashed changes
 }
