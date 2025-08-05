@@ -150,3 +150,267 @@ footer{
      margin-top: 20px;
      margin-bottom:20px;
 }
+/* --- Contact Page Styles --- */
+
+
+.contact-main {
+  display: flex;
+  gap: 2%;
+  justify-content: space-between;
+  background: #f7e6d3;
+  padding: 40px 2% 40px 2%;
+}
+
+.contact-info, .contact-form {
+  justify-content: center;
+  background-color: #e8d6b9;
+  border-radius: 6px;
+  padding: 20px 20px 20px 20px;
+  width: 48%;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contact-info h2, .contact-form h2 {
+  margin-top: 0;
+  color: #5c1a1b;
+  font-size: 22px;
+  margin-bottom: 18px;
+  text-align: center; 
+  width: 100%; 
+
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #3e2c23;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-map-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  margin-top: 15px;
+  border-radius: 5px;
+  border: 1px solid #d1bfa3;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  
+}
+.contact-form label {
+  display: block;
+  width: 40%;        /* Set to a smaller percentage or use e.g. 120px */
+  margin-top: 15px;
+  font-weight: bold;
+  color: #5c1a1b;
+}
+
+.contact-form input, .contact-form textarea {
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 80px;
+  align-items: center;
+}
+
+.contact-form button {
+  align-items: center;
+  margin-top: 18px;
+  background-color: #5a2121;
+  color: white;
+  border: none;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.contact-form button:hover {
+  
+  background-color: #4a1415;
+}
+
+/* Shopping Cart Main Container Styles - overall layout and background */
+.shopping-cart {
+  width: 75%;
+  margin: 30px auto;
+  background-color: #f7e6d3;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+}
+
+/* Shopping Cart Title - heading style */
+.shopping-cart h1 {
+  text-align: center;
+  color: #5c1a1b;
+  margin: 20px 0 20px 30px;
+  font-size: 24px;
+  font-weight: 500, bold;
+
+}
+
+/* Items List Container */
+.cart-items {
+  margin-bottom: 0;
+}
+
+/* Individual Cart Item Styles - row for each product */
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  background-color: #e8d6b9;
+  border-radius: 0;
+  padding: 15px 30px;
+  border-bottom: 2px solid #fff8f0;
+}
+
+/* Product Image Styles */
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 25px;
+  background: #fff;
+  border: 1px solid #d1bfa3;
+}
+
+/* Item Details Column */
+.item-details {
+  flex: 1;
+  display: flex;
+  
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Product Name Styles */
+.item-name {
+  font-size: 18px;
+  color: #5c1a1b;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Row for Quantity and Price */
+.item-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+/* Label for Price */
+.item-label {
+  color: #5c1a1b;
+  font-weight: 500;
+}
+
+/* Price Value Styles */
+.item-price {
+  color: #5c1a1b;
+  font-weight: bold;
+}
+
+/* Cart Summary Section - totals and pay button */
+.cart-summary {
+  background: #e8d6b9;
+  padding: 20px 30px;
+  border-radius: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+/* Row for Each Summary Item */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+/* Highlight Total Row */
+.summary-row.total {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+/* Value Styles in Summary */
+.summary-value {
+  color: #5c1a1b;
+}
+
+/* Pay Button Styles */
+#proceed-pay {
+  margin-top: 18px;
+  background-color: #5a2121;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  width: 20%;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Pay Button Hover Effect */
+#proceed-pay:hover {
+  background-color: #4a1415;
+}
+
+/* Feedback Section Styles - feedback box at bottom */
+.feedback {
+  background: #fff8f0;
+  padding: 18px 30px;
+  border-radius: 0 0 10px 10px;
+  margin-top: 0;
+  font-size: 15px;
+}
+
+/* Feedback Title Styles */
+.feedback-title {
+  color: #5c1a1b;
+  margin-bottom: 8px;
+}
+
+/* Feedback Link Styles */
+.feedback-link {
+  color: #571523;
+  font-weight: bold;
+  text-decoration: underline;
+  display: block;
+  margin: 8px 0;
+}
+
+/* Feedback Thank You Styles */
+.feedback-thank {
+  color: #5c1a1b;
+  font-weight: bold;
+}

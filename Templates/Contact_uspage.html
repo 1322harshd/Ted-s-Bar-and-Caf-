@@ -1,124 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us - Ted's Bar and Café</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-
-  
-
-  <div class="main">
-    <div class="contact-info">
-      <h2>Company Contact Details</h2>
-      <p>📍 121 New York Hills Street, America USA</p>
-      <p>📞 +64909090404040</p>
-      <p>📧 drink@tedsbarandcafe.com</p>
-      <img src="images/map.png" alt="Map showing location" />
-    </div>
-
-    <div class="contact-form">
-      <h2>Contact Form</h2>
-      <form>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" />
-
-        <label for="email">Email ID</label>
-        <input type="email" id="email" name="email" />
-
-        <label for="message">Message Box</label>
-        <textarea id="message" name="message" rows="5"></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
+<div class="main contact-main">
+  <div class="contact-info">
+    <h2>Company Contact Details</h2>
+    <p><span style="font-size:18px;">&#128205;</span> 375 Greenwich St, New York, NY 10013</p>
+    <p><span style="font-size:18px;">&#128222;</span> +64909090404040</p>
+    <p><span style="font-size:18px;">&#128231;</span> drink@tedsbarandcafe.com</p>
+    <!-- Live Google Map Embed -->
+    <iframe
+  src="https://www.google.com/maps?q=375+Greenwich+St,+New+York,+NY+10013&output=embed"
+  width="100%" height="180" style="border-radius:5px; border:1px solid #d1bfa3;"
+  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+  class="contact-map-img"></iframe>
   </div>
+  <div class="contact-form">
+    <h2>Contact Form</h2>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" />
 
-</body>
-</html>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fdf6f0;
-  color: #3e2c23;
-}
+      <label for="email">Email ID</label>
+      <input type="email" id="email" name="email" />
 
+      <label for="message">Message Box</label>
+      <textarea id="message" name="message" rows="5"></textarea>
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-.main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 30px;
-}
-
-.contact-info, .contact-form {
-  background-color: E8D6B9;
-  border-radius: 8px;
-  padding: 20px;
-  width: 48%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-
-.contact-info h2, .contact-form h2 {
-  margin-top: 0;
-  color: #5c1a1b;
-}
-
-.contact-info p {
-  margin: 10px 0;
-  font-size: 16px;
-}
-
-.contact-info img {
-  width: 100%;
-  margin-top: 15px;
-  border-radius: 5px;
-}
-
-.contact-form label {
-  display: block;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-.contact-form input, .contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.contact-form button {
-  margin-top: 20px;
-  background-color: #571523;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.contact-form button:hover {
-  background-color: #4a1415;
-}
-
-
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
