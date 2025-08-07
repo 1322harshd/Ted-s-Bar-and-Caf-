@@ -116,40 +116,49 @@ footer{
 }
 .welcome h1{
      color:rgba(87, 21, 35, 1);
-     font-size: larger;
-     font-style: bold;
+     font-size: xx-large;
+     font-weight: bolder;
+     font-family: Arial, sans-serif;
+
 }
 .welcome h3{
      color:rgba(157, 99, 111, 1);
-     font-size: larger;
-     font-style: bold italic;
+     font-size: x-large;
+     font-style: italic;
 }     
 /*  about page shop about section*/
 
 .about{
      background-color: rgba(232, 214, 185, 1);
-     padding:10px 10px 10px 10px;
-     color:rgba(87, 21, 35, 1);
+     padding:10px 40px 10px 30px;
+     color:rgba(157, 99, 111, 1);
      font-style:italic;
-     font-size: x-larger;
-     width:500px;
+     font-size: x-large;
+     width:600px;
      margin: 0 auto;
      margin-top: 20px;
      margin-bottom:20px;
-     
+     text-align:justify ;
+}
+.about h1{
+     text-align: center;
+     font-style: bold;
+     color:rgba(87, 21, 35, 1);
+
 }
 .history{
      background-color: rgba(232, 214, 185, 1);
-     padding:10px 10px 10px 10px;
-     color:rgba(87, 21, 35, 1);
-     font-style:italic;
-     font-size: x-larger;
-     width:500px;
+     padding:10px 40px 10px 30px;
+     color:rgba(157, 99, 111, 1);
+     font-size: x-large;
+     font-style: italic;
+     width:600px;
      margin: 0 auto;
-     justify-content: center;
      margin-top: 20px;
      margin-bottom:20px;
+     text-align: justify;
 }
+
 /* --- Contact Page Styles --- */
 
 
@@ -426,4 +435,10 @@ footer{
 .feedback-thank {
   color: #5c1a1b;
   font-weight: bold;
+}
+.history h1{
+     text-align: center;
+     font-style: bold;
+     color:rgba(87, 21, 35, 1);
+
 }
