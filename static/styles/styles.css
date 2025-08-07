@@ -240,7 +240,7 @@ footer{
   color: white;
   border: none;
   padding: 12px 0;
-  width: 100%;
+  width: 200px;           /* Set a fixed width */
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
@@ -337,6 +337,11 @@ footer{
   color: #5c1a1b;
   font-weight: bold;
 }
+.item-total-price {
+  margin-left: auto;
+  color: #571523;
+  font-weight: bold;
+}
 
 /* Cart Summary Section - totals and pay button */
 .cart-summary {
@@ -344,6 +349,7 @@ footer{
   padding: 20px 30px;
   border-radius: 0;
   margin-bottom: 0;
+  font-weight: bold;
   font-size: 16px;
 }
 
@@ -366,18 +372,25 @@ footer{
   color: #5c1a1b;
 }
 
-/* Pay Button Styles */
+.pay-btn-row {
+  text-align: right;
+  padding-top: 10px;
+}
+
 #proceed-pay {
-  margin-top: 18px;
   background-color: #5a2121;
   color: white;
   border: none;
   padding: 10px 0;
-  width: 20%;
-  border-radius: 4px;
+  width: 250px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
+  margin-right: 30px; /* aligns with table padding */
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
 }
 
 /* Pay Button Hover Effect */

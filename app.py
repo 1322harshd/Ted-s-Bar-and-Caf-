@@ -29,10 +29,13 @@ def cart():
         other_charges=other_charges,
         total=total
     )
+@app.route('/payment')
+def payment():
+    return render_template('payment.html')
 @app.route('/feedback')
 def feedback():
     return "<h2>Feedback page coming soon!</h2>"
 
 # Run the development server
 if __name__ == '__main__':
-    app.run(debug=True) 
+    app.run(debug=True)
