@@ -6,7 +6,36 @@ app = Flask(__name__)
 @app.route("/about")
 def about_page():
   return render_template('about_page.html')
+#menu route with all item display functionality
+@app.route("/menu")
+def menu_page():
+     items = [
+        {'name': 'Espresso', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
+        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
+        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
+        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
+        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
+        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
+        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
+        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
+        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
+        {'name': 'Green Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
+        {'name': 'Black Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
+        {'name': 'Croissant', 'category': 'Pastry','img':'cappucino.png','price':'$5'}
+    ]
 
+     from collections import defaultdict
+     grouped_items = defaultdict(list)
+
+     for item in items:
+        grouped_items[item['category']].append(item)
+     return render_template('menu_page.html', grouped_items=grouped_items)
+
+#route for selected drink category
+# @app.route("/filter/<category>")
+# def filter(category):
+    
+    
 @app.route('/contact')
 def contact():
     return render_template('Contact_uspage.html')
