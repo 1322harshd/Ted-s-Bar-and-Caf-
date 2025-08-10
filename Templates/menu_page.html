@@ -9,7 +9,7 @@
     <h2>Drinks</h2>
     <!-- buttons for different categories -->
     <ul>
-        <li><button onclick="filterCategory('all')">All</button></li>
+        <li><a href="/menu" style="text-decoration:none;color:rgba(87, 21, 35, 1);">All</a></li>
         <li><button onclick="filterCategory('hot-coffees')">Hot Coffees</button>
         <li><button onclick="filterCategory('cold-coffees')">Cold Coffees</button>
         <li><button onclick="filterCategory('hot-teas')">Hot Teas</button>
@@ -34,37 +34,31 @@
         <img src="{{ url_for('static', filename='logos/specials.gif') }}" alt="special-offer" style="height: 150px;width:100px;" >
         <p>* Limited time offer only</p>
        </div>
-</div>
-<!-- all items list -->
-<div class="all-lists">
-    {% for category, items in grouped_items.items() %}
-        <h2>{{ category }}</h2>
-        <div class="product-card">
-        {% for item in items %}
-        <div class="card-items">
-            <div class="img-container">
-                 <img src="{{ url_for('static', filename='images/' ~ item.img) }}" alt="{{ category }}">
-            </div>
-            <div class="card-item-info">
-                <p>{{ item.name }}</p>
-                <p>{{ item.price }}</p>
-           </div>
-        </div>
-        {% endfor %}
-        </div>
-    {% endfor %}
+    </div>
+
+<div id="result">
+    {% include "category.html" %}
 </div>
 </div>
 </div>
-<!-- javascript for filter option -->
-<!-- <script>
-    function filterCategory(category){
-    const url = category === 'all' ? '/menu' : `/filter/${category}`;
+
+ <script>
+function filterCategory(category) {
+
+   const specialsDiv = document.querySelector('.specials');
+
+    // when filtering starts
+    isFiltering = true;
+    specialsDiv.classList.add('hidden'); // hide specials
+
+    const url = `/filter/${category}`; 
     fetch(url)
         .then(response => response.text())
         .then(html => {
             document.getElementById('result').innerHTML = html;
-        });
-    }
-</script> -->
+        })
+        .catch(error => console.error('Error loading category:', error));
+}
+</script>
+
 {% endblock %}

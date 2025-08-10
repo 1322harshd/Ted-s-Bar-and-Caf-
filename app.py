@@ -1,4 +1,5 @@
 from flask import Flask,render_template
+from collections import defaultdict
 
 app = Flask(__name__)
 
@@ -7,34 +8,30 @@ app = Flask(__name__)
 def about_page():
   return render_template('about_page.html')
 #menu route with all item display functionality
+items = [
+    {'name': 'Espresso', 'category': 'hot-coffees','img':'cappucino.png','price':'$5'},
+    {'name': 'Latte', 'category': 'hot-coffees','img':'cappucino.png','price':'$5'},
+    {'name': 'Green Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
+    {'name': 'Black Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
+    {'name': 'Croissant', 'category': 'Pastry','img':'cappucino.png','price':'$5'}
+]
+
 @app.route("/menu")
 def menu_page():
-     items = [
-        {'name': 'Espresso', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
-        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
-        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
-        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
-        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
-        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
-        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
-        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
-        {'name': 'Latte', 'category': 'Coffee','img':'cappucino.png','price':'$5'},
-        {'name': 'Green Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
-        {'name': 'Black Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
-        {'name': 'Croissant', 'category': 'Pastry','img':'cappucino.png','price':'$5'}
-    ]
+    grouped_items = group_items(items)  # All items
+    return render_template("menu_page.html", grouped_items=grouped_items)
 
-     from collections import defaultdict
-     grouped_items = defaultdict(list)
+@app.route("/filter/<category>")
+def filter_category(category):
+    filtered = [item for item in items if item['category'].lower() == category.lower()]
+    grouped_items = group_items(filtered)
+    return render_template("category.html", grouped_items=grouped_items)
 
-     for item in items:
-        grouped_items[item['category']].append(item)
-     return render_template('menu_page.html', grouped_items=grouped_items)
-
-#route for selected drink category
-# @app.route("/filter/<category>")
-# def filter(category):
-    
+def group_items(item_list):
+    grouped = defaultdict(list)
+    for item in item_list:
+        grouped[item['category']].append(item)
+    return grouped
     
 @app.route('/contact')
 def contact():
