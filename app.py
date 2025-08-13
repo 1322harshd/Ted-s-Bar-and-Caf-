@@ -9,11 +9,11 @@ def about_page():
   return render_template('about_page.html')
 #menu route with all item display functionality
 items = [
-    {'name': 'Espresso', 'category': 'hot-coffees','img':'cappucino.png','price':'$5'},
-    {'name': 'Latte', 'category': 'hot-coffees','img':'cappucino.png','price':'$5'},
-    {'name': 'Green Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
-    {'name': 'Black Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
-    {'name': 'Croissant', 'category': 'Pastry','img':'cappucino.png','price':'$5'}
+    {'id':1,'name': 'Espresso', 'category': 'hot-coffees','img':'cappucino.png','price':'$5'},
+    {'id':2,'name': 'Latte', 'category': 'hot-coffees','img':'cappucino.png','price':'$5'},
+    {'id':3,'name': 'Green Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
+    {'id':4,'name': 'Black Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
+    {'id':5,'name': 'Croissant', 'category': 'Pastry','img':'cappucino.png','price':'$5'}
 ]
 
 @app.route("/menu")
@@ -32,7 +32,22 @@ def group_items(item_list):
     for item in item_list:
         grouped[item['category']].append(item)
     return grouped
-    
+
+# hardcoded selected product page
+@app.route("/spp/<int:id>")
+def selected_product(id):
+       # Find the product with matching ID
+    product = next((p for p in items if p["id"] == id), None)
+    if not product:
+        return "Product not found", 404
+
+    # Find related products from same category
+    related = [p for p in items if p["category"] == product["category"] and p["id"] != id]
+
+    return render_template("selected_product_page.html", product=product, related=related)
+
+
+
 @app.route('/contact')
 def contact():
     return render_template('Contact_uspage.html')
