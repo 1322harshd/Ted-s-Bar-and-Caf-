@@ -655,11 +655,14 @@ footer{
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 .hidden {
     display: none;
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> 4a8c967 (removed bugs from styles.css)
 .history h1{
      text-align: center;
      font-style: bold;
@@ -667,8 +670,11 @@ footer{
 
 >>>>>>> fc5d663 (change the name of payment.html and also fixing in the html code and add some extra options)
 }
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> 4a8c967 (removed bugs from styles.css)
 
 /* Payment Popup Background */
 .payment-popup-bg {
@@ -788,6 +794,7 @@ footer{
 .payment-popup-pay-btn:hover {
   background-color: #4a1415;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 135cb0f (change the name of payment.html and also fixing in the html code and add some extra options)
 =======
@@ -795,15 +802,11 @@ footer{
 =======
 =======
 >>>>>>> eb8c2ab (change the name of payment.html and also fixing in the html code and add some extra options)
+=======
+>>>>>>> 4a8c967 (removed bugs from styles.css)
 .hidden {
     display: none;
 }
-
-<<<<<<< HEAD
->>>>>>> ac9129f6430f8e5edc34d53a4fb04e4fc750687e
-=======
-=======
-
 /* Payment Popup Background */
 .payment-popup-bg {
   background: transparent;
@@ -922,6 +925,9 @@ footer{
 .payment-popup-pay-btn:hover {
   background-color: #4a1415;
 }
+<<<<<<< HEAD
 >>>>>>> 135cb0f (change the name of payment.html and also fixing in the html code and add some extra options)
 >>>>>>> eb8c2ab (change the name of payment.html and also fixing in the html code and add some extra options)
 >>>>>>> fc5d663 (change the name of payment.html and also fixing in the html code and add some extra options)
+=======
+>>>>>>> 4a8c967 (removed bugs from styles.css)
