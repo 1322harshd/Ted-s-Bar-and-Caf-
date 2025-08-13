@@ -653,7 +653,129 @@ footer{
   color: #5c1a1b;
   font-weight: bold;
 }
+<<<<<<< HEAD
 .hidden {
     display: none;
 }
 
+=======
+
+/* Payment Popup Background */
+.payment-popup-bg {
+  background: transparent;
+  padding: 0;
+}
+
+/* Payment Popup Container */
+.payment-popup-container {
+  background: #fff8f0;
+  border: 8px solid #5a2121;
+  border-radius: 8px;
+  width: 450px;         /* Increased from 400px */
+  margin: 30px auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
+  padding: 0;
+}
+
+/* Payment Tabs */
+.payment-popup-tabs {
+  display: flex;
+  justify-content: center;
+  background: #fff8f0;
+  border-bottom: 2px solid #5a2121;
+  border-radius: 8px 8px 0 0;
+  padding: 12px 0 0 0;
+  font-size: 16px;
+  font-weight: bold;
+  gap: 18px;
+}
+.payment-popup-tabs span {
+  color: #5a2121;
+  padding: 6px 18px;
+  cursor: pointer;
+  border-radius: 6px 6px 0 0;
+  background: none;
+}
+.payment-popup-tabs .active {
+  background: #e8d6b9;
+  color: #5a2121;
+}
+
+/* Payment Form */
+.payment-popup-form {
+  padding: 18px 18px 0 18px;
+  background: #e8d6b9;
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Labels and Inputs */
+.payment-popup-form label {
+  font-weight: bold;
+  color: #5a2121;
+  margin-bottom: 2px;
+  font-size: 15px;
+}
+.payment-popup-form input,
+.payment-popup-form textarea {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid #d1bfa3;
+  border-radius: 4px;
+  font-size: 15px;
+  background: #fff;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+/* Row for MM/YY and CVC */
+.payment-popup-row {
+  display: flex;
+  gap: 12px;
+}
+.payment-popup-row > div {
+  flex: 1;
+}
+
+/* Payment Summary */
+.payment-popup-summary {
+  background: #fff8f0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 12px 0 0 0;
+  font-size: 15px;
+}
+.payment-popup-summary div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  color: #5a2121;
+}
+.payment-popup-summary .total {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 6px;
+}
+
+/* Pay Button */
+.payment-popup-pay-btn {
+  background-color: #5a2121;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 17px;
+  margin-top: 14px;
+  margin-bottom: 10px;
+  box-shadow: none;
+  text-align: center;
+}
+.payment-popup-pay-btn:hover {
+  background-color: #4a1415;
+}
+>>>>>>> 135cb0f (change the name of payment.html and also fixing in the html code and add some extra options)

@@ -76,6 +76,9 @@ def payment():
 @app.route('/feedback')
 def feedback():
     return "<h2>Feedback page coming soon!</h2>"
+@app.route('/order_confirmation')
+def order_confirmation():
+    return render_template('order_confirmation.html')
 
 # Run the development server
 if __name__ == '__main__':
