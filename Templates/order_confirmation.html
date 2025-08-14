@@ -1,11 +1,8 @@
 <!-- order_confirmation.html -->
 {% extends "base.html" %}
 {% block content %}
-<div class="/order-confirmation">
-    <h2>Thank you for your order!</h2>
-    <p>Your payment was successful.</p>
-    <p>Estimated delivery/pickup time: <strong>30-45 minutes</strong></p>
-    <p>A receipt has been sent to your email.</p>
-    <a href="{{ url_for('menu') }}">Back to Menu</a> | <a href="{{ url_for('contact') }}">contact</a>
+<div class="confirmation-message">
+  <h2>Order Successful!</h2>
+  <p>Your payment was processed and your order is confirmed.</p>
 </div>
 {% endblock %}

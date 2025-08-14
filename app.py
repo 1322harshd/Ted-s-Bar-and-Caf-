@@ -1,26 +1,38 @@
-from flask import Flask,render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-#about page route
+# About page route
 @app.route("/about")
 def about_page():
-  return render_template('about_page.html')
+    # Render the about page template
+    return render_template('about_page.html')
 
+# Contact page route
 @app.route('/contact')
 def contact():
+    # Render the contact us page template
     return render_template('Contact_uspage.html')
+
+# Cart page route
 @app.route('/cart')
 def cart():
-    # Example cart items
+    # Example cart items (would be dynamic in a real app)
     cart_items = [
-        {'id': 1, 'name': 'Cappuccino', 'image': 'cappuccino.png', 'quantity': 2, 'price': 4.50},
-        {'id': 2, 'name': 'Sandwich', 'image': 'sandwich.png', 'quantity': 1, 'price': 6.00}
+       
     ]
+    # Calculate subtotal
     subtotal = sum(item['price'] * item['quantity'] for item in cart_items)
-    taxes = round(subtotal * 0.10, 2)  # Example 10% tax
-    other_charges = 2.00  # Example other charges
+    # Calculate total quantity
+    total_quantity = sum(item['quantity'] for item in cart_items)
+    # Apply other charges only if 3 or more items are ordered
+    if total_quantity >= 3:
+        other_charges = round(subtotal * 0.015, 2)  # 1.5% of subtotal
+    else:
+        other_charges = 0.00
+    taxes = round(subtotal * 0.18, 2)  # 18% tax
     total = round(subtotal + taxes + other_charges, 2)
+    # Render the shopping cart template with calculated values
     return render_template(
         'Shopping_cart.html',
         cart_items=cart_items,
@@ -29,14 +41,81 @@ def cart():
         other_charges=other_charges,
         total=total
     )
-@app.route('/payment')
+
+# Payment page route
+@app.route('/Payment')
 def payment():
-    return render_template('payment.html')
+    # Get summary values from query parameters
+    subtotal = request.args.get('subtotal', 0, type=float)
+    taxes = request.args.get('taxes', 0, type=float)
+    other_charges = request.args.get('other_charges', 0, type=float)
+    total = request.args.get('total', 0, type=float)
+    # Render the payment page with summary values
+    return render_template(
+        'payment.html',
+        subtotal=subtotal,
+        taxes=taxes,
+        other_charges=other_charges,
+        total=total
+    )
+
+# Feedback page route
 @app.route('/feedback')
 def feedback():
+    # Placeholder for feedback page
     return "<h2>Feedback page coming soon!</h2>"
-@app.route('/order_confirmation')
+
+# Order confirmation and payment validation route
+@app.route('/order_confirmation', methods=['GET', 'POST'])
 def order_confirmation():
+    if request.method == 'POST':
+        # Get form data from payment page
+        fullname = request.form.get('fullname', '').strip()
+        card_number = request.form.get('card_number', '').replace(' ', '').replace('-', '')
+        expiry = request.form.get('expiry', '').strip()
+        cvc = request.form.get('cvc', '').strip()
+        card_name = request.form.get('card_name', '').strip()
+        errors = []
+
+        # Get summary values from hidden fields
+        subtotal = request.form.get('subtotal', 0, type=float)
+        taxes = request.form.get('taxes', 0, type=float)
+        other_charges = request.form.get('other_charges', 0, type=float)
+        total = request.form.get('total', 0, type=float)
+
+        # Validate payment details
+        if not fullname:
+            errors.append("Full name is required.")
+        if not card_number.isdigit() or len(card_number) != 16:
+            errors.append("Card number must be exactly 16 digits.")
+        import re, datetime
+        exp_match = re.match(r'^(\d{2})/(\d{2})$', expiry)
+        if not exp_match:
+            errors.append("Expiry must be in MM/YY format.")
+        else:
+            mm, yy = int(exp_match.group(1)), int(exp_match.group(2)) + 2000
+            now = datetime.datetime.now()
+            exp_date = datetime.datetime(yy, mm, 1)
+            if mm < 1 or mm > 12 or exp_date < now.replace(day=1):
+                errors.append("Card expired or invalid month.")
+        if not (cvc.isdigit() and len(cvc) == 3):
+            errors.append("CVC must be exactly 3 digits.")
+        if not card_name:
+            errors.append("Name on card is required.")
+
+        # If there are errors, re-render payment page with errors
+        if errors:
+            return render_template(
+                'payment.html',
+                errors=errors,
+                subtotal=subtotal,
+                taxes=taxes,
+                other_charges=other_charges,
+                total=total
+            )
+        # If no errors, show order confirmation page
+        return render_template('order_confirmation.html')
+    # For GET requests, just show confirmation page
     return render_template('order_confirmation.html')
 
 # Run the development server

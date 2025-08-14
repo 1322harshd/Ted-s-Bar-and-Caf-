@@ -368,8 +368,11 @@ footer{
 }
 
 /* Value Styles in Summary */
-.summary-value {
-  color: #5c1a1b;
+.cart-summary td,
+.cart-summary .summary-value {
+  color: #5c1a1b; 
+  font-weight: bold;
+  display: table-cell;
 }
 
 .pay-btn-row {
@@ -382,12 +385,12 @@ footer{
   color: white;
   border: none;
   padding: 10px 0;
-  width: 250px;
+  width: 200px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
   font-size: 18px;
-  margin-right: 30px; /* aligns with table padding */
+  margin-right: 7px; 
   display: inline-block;
   text-align: center;
   text-decoration: none;
@@ -515,6 +518,16 @@ footer{
   margin: 12px 0 0 0;
   font-size: 15px;
 }
+.payment-popup-summary td,
+.payment-popup-summary .summary-value {
+  color: #5c1a1b;
+  font-weight: bold;
+  display: table-cell;
+  
+
+}
+
+
 .payment-popup-summary div {
   display: flex;
   justify-content: space-between;
