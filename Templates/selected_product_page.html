@@ -26,7 +26,21 @@ brewed coffee.</p>
 </section>
 <!-- section for related products to the selected products -->
  <section class="related-products">
-    <h3>Related Products</h3>
-    <div></div>
+    <h2>Related Products</h2>
+    <div class="related-product-card">
+        {% for product in related %}
+         <a href="{{ url_for('selected_product', id=product.id) }}">
+        <div class="related-card-items">
+            <div class="related-img-container">
+                <img src="{{ url_for('static', filename='images/' ~ product.img) }}" alt="{{ category }}">
+            </div>
+            <div class="related-card-item-info">
+                <p>{{ product.name }}</p>
+                <p>{{ product.price }}</p>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+    </div>
  </section>
 {% endblock %}

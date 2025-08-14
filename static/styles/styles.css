@@ -370,12 +370,53 @@ footer{
 }
 /* style for related products on selected product page  */
 .related-products{
-  background-color: rgba(232, 214, 185, 1);
+  display:flex;
+  margin: 20px 0 10px 0;
+}
+
+.related-products h2{
+  color: rgba(87, 21, 35, 1);
+  font-size: larger;
+  font-weight: bolder;
+  margin-right:50px;
+}
+
+.related-card-item-info{
+  display:flex;
+  gap:50%;
+padding-left:50px;
+}
+.related-img-container{
+  background-color: rgba(87, 21, 35, 1);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.related-img-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.related-product-card a {
+  text-decoration: none;
+  color: rgba(87, 21, 35, 1);
+   display: flex;             
+    overflow-x: auto;           
+    gap: 1rem;               
+    padding-bottom: 0.5rem; 
+    font-weight: bolder;
+}
+.related-card-items{
+   min-width: 200px;           
+    flex-shrink: 0;              
+    background: rgba(232, 214, 185, 1);
+    border-radius: 8px;
+    padding: 10px;
 
 }
-.related-products h3{
-  color:rgba(87, 21, 35, 1);
-}
+
 /* --- Contact Page Styles --- */
 
 
@@ -653,28 +694,15 @@ footer{
   color: #5c1a1b;
   font-weight: bold;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 .hidden {
     display: none;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4a8c967 (removed bugs from styles.css)
+}
 .history h1{
      text-align: center;
      font-style: bold;
      color:rgba(87, 21, 35, 1);
-
->>>>>>> fc5d663 (change the name of payment.html and also fixing in the html code and add some extra options)
 }
-<<<<<<< HEAD
-
-=======
-=======
->>>>>>> 4a8c967 (removed bugs from styles.css)
 
 /* Payment Popup Background */
 .payment-popup-bg {
@@ -794,16 +822,6 @@ footer{
 .payment-popup-pay-btn:hover {
   background-color: #4a1415;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 135cb0f (change the name of payment.html and also fixing in the html code and add some extra options)
-=======
->>>>>>> 135cb0fd5590cfa1b4372829f74af1d7dbc8d9c1
-=======
-=======
->>>>>>> eb8c2ab (change the name of payment.html and also fixing in the html code and add some extra options)
-=======
->>>>>>> 4a8c967 (removed bugs from styles.css)
 .hidden {
     display: none;
 }
@@ -925,9 +943,3 @@ footer{
 .payment-popup-pay-btn:hover {
   background-color: #4a1415;
 }
-<<<<<<< HEAD
->>>>>>> 135cb0f (change the name of payment.html and also fixing in the html code and add some extra options)
->>>>>>> eb8c2ab (change the name of payment.html and also fixing in the html code and add some extra options)
->>>>>>> fc5d663 (change the name of payment.html and also fixing in the html code and add some extra options)
-=======
->>>>>>> 4a8c967 (removed bugs from styles.css)

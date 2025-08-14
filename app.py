@@ -36,12 +36,12 @@ def group_items(item_list):
 # hardcoded selected product page
 @app.route("/spp/<int:id>")
 def selected_product(id):
-       # Find the product with matching ID
+       # find the product with matching id
     product = next((p for p in items if p["id"] == id), None)
     if not product:
         return "Product not found", 404
 
-    # Find related products from same category
+    # find related products from same category
     related = [p for p in items if p["category"] == product["category"] and p["id"] != id]
 
     return render_template("selected_product_page.html", product=product, related=related)
@@ -53,7 +53,7 @@ def contact():
     return render_template('Contact_uspage.html')
 @app.route('/cart')
 def cart():
-    # Example cart items
+    # example cart items
     cart_items = [
         {'id': 1, 'name': 'Cappuccino', 'image': 'cappuccino.png', 'quantity': 2, 'price': 4.50},
         {'id': 2, 'name': 'Sandwich', 'image': 'sandwich.png', 'quantity': 1, 'price': 6.00}
