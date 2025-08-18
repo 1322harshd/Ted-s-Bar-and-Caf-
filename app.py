@@ -108,9 +108,7 @@ def payment():
 def feedback():
     # Placeholder for feedback page
     return "<h2>Feedback page coming soon!</h2>"
-@app.route('/order_confirmation')
-def order_confirmation():
-    return render_template('order_confirmation.html')
+
 
 # Order confirmation and payment validation route
 @app.route('/order_confirmation', methods=['GET', 'POST'])
@@ -152,6 +150,7 @@ def order_confirmation():
 
         # If there are errors, re-render payment page with errors
         if errors:
+            # Payment failed, show payment form again
             return render_template(
                 'payment.html',
                 errors=errors,
@@ -160,10 +159,10 @@ def order_confirmation():
                 other_charges=other_charges,
                 total=total
             )
-        # If no errors, show order confirmation page
-        return render_template('order_confirmation.html')
-    # For GET requests, just show confirmation page
-    return render_template('order_confirmation.html')
+        # if the Payment successful, show confirmation with success=True
+        return render_template('order_confirmation.html', success=True)
+    # If GET request, show confirmation with success=False optional
+    return render_template('order_confirmation.html', success=False)
 
 # Run the development server
 if __name__ == '__main__':

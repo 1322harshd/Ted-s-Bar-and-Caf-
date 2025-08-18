@@ -7,7 +7,7 @@
             <span class="tab" data-tab="credit">Credit Card</span>
             <span class="tab" data-tab="rewards">Rewards</span>
         </div>
-        <form class="payment-popup-form" id="payment-form">
+        
         <form class="payment-popup-form" id="payment-form" method="POST" action="{{ url_for('order_confirmation') }}">
             <label>Full Name</label>
             <input type="text" name="fullname" id="fullname" placeholder="for ex-Karamjeet" required />
@@ -25,17 +25,13 @@
             <textarea name="instructions" id="instructions" placeholder="for ex- ditery or use hot bag to deliver"></textarea>
 
             <label>Card Number</label>
-            <input type="text" placeholder="for ex-1111-1111-1111-1111" />
+            
             <input type="text" name="card_number" placeholder="for ex-1111-1111-1111-1111" required />
 
             <div class="payment-popup-row">
+                
                 <div>
                     <label>MM/YY</label>
-                    <input type="text" placeholder="for ex-11/11" />
-                </div>
-                <div>
-                    <label>CVC</label>
-                    <input type="text" placeholder="for ex-111" />
                     <input type="text" name="expiry" placeholder="for ex-11/11" required />
                 </div>
                 <div>
@@ -45,14 +41,7 @@
             </div>
 
             <label>Name on Card</label>
-            <input type="text" placeholder="for ex- Name on Card" />
-
-            <div class="payment-popup-summary">
-                <div>Subtotal <span>$00.00</span></div>
-                <div>Tax <span>$0.00</span></div>
-                <div>Delivery charges <span>$0.00</span></div>
-                <div class="total">Total: <span>$00.00</span></div>
-            </div>
+            
             <input type="text" name="card_name" placeholder="for ex- Name on Card" required />
 
             <div class="payment-popup-summary">
