@@ -635,8 +635,11 @@ padding-left:50px;
 }
 
 /* Value Styles in Summary */
-.summary-value {
-  color: #5c1a1b;
+.cart-summary td,
+.cart-summary .summary-value {
+  color: #5c1a1b; 
+  font-weight: bold;
+  display: table-cell;
 }
 
 .pay-btn-row {
@@ -649,12 +652,12 @@ padding-left:50px;
   color: white;
   border: none;
   padding: 10px 0;
-  width: 250px;
+  width: 200px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
   font-size: 18px;
-  margin-right: 30px; /* aligns with table padding */
+  margin-right: 7px; 
   display: inline-block;
   text-align: center;
   text-decoration: none;
@@ -693,6 +696,7 @@ padding-left:50px;
 .feedback-thank {
   color: #5c1a1b;
   font-weight: bold;
+<<<<<<< HEAD
 
 }
 .history h1{
@@ -700,6 +704,8 @@ padding-left:50px;
      font-style: bold;
      color:rgba(87, 21, 35, 1);
 
+=======
+>>>>>>> 3bbf7dd9cbf7838b200a026c6e7b5519cf86ccc7
 }
 
 /* Payment Popup Background */
@@ -789,6 +795,19 @@ padding-left:50px;
   margin: 12px 0 0 0;
   font-size: 15px;
 }
+<<<<<<< HEAD
+=======
+.payment-popup-summary td,
+.payment-popup-summary .summary-value {
+  color: #5c1a1b;
+  font-weight: bold;
+  display: table-cell;
+  
+
+}
+
+
+>>>>>>> 3bbf7dd9cbf7838b200a026c6e7b5519cf86ccc7
 .payment-popup-summary div {
   display: flex;
   justify-content: space-between;
@@ -819,6 +838,7 @@ padding-left:50px;
 }
 .payment-popup-pay-btn:hover {
   background-color: #4a1415;
+<<<<<<< HEAD
 }
 .hidden {
     display: none;
@@ -942,3 +962,6 @@ padding-left:50px;
   background-color: #4a1415;
 }
 
+=======
+}
+>>>>>>> 3bbf7dd9cbf7838b200a026c6e7b5519cf86ccc7
