@@ -15,13 +15,7 @@ items = [
     {'name': 'Black Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
     {'name': 'Croissant', 'category': 'Pastry','img':'cappucino.png','price':'$5'}
 ]
-    {'id':1,'name': 'Espresso', 'category': 'hot-coffees','img':'cappucino.png','price':'$5'},
-    {'id':2,'name': 'Latte', 'category': 'hot-coffees','img':'cappucino.png','price':'$5'},
-    {'id':3,'name': 'Green Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
-    {'id':4,'name': 'Black Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
-    {'id':5,'name': 'Croissant', 'category': 'Pastry','img':'cappucino.png','price':'$5'}
-]
-
+ 
 @app.route("/menu")
 def menu_page():
     grouped_items = group_items(items)  # All items
