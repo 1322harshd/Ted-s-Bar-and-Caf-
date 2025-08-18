@@ -1,4 +1,5 @@
 from flask import Flask,render_template
+from collections import defaultdict
 
 app = Flask(__name__)
 
@@ -6,13 +7,53 @@ app = Flask(__name__)
 @app.route("/about")
 def about_page():
   return render_template('about_page.html')
+#menu route with all item display functionality
+items = [
+    {'id':1,'name': 'Espresso', 'category': 'hot-coffees','img':'cappucino.png','price':'$5'},
+    {'id':2,'name': 'Latte', 'category': 'hot-coffees','img':'cappucino.png','price':'$5'},
+    {'id':3,'name': 'Green Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
+    {'id':4,'name': 'Black Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
+    {'id':5,'name': 'Croissant', 'category': 'Pastry','img':'cappucino.png','price':'$5'}
+]
+
+@app.route("/menu")
+def menu_page():
+    grouped_items = group_items(items)  # All items
+    return render_template("menu_page.html", grouped_items=grouped_items)
+
+@app.route("/filter/<category>")
+def filter_category(category):
+    filtered = [item for item in items if item['category'].lower() == category.lower()]
+    grouped_items = group_items(filtered)
+    return render_template("category.html", grouped_items=grouped_items)
+
+def group_items(item_list):
+    grouped = defaultdict(list)
+    for item in item_list:
+        grouped[item['category']].append(item)
+    return grouped
+
+# hardcoded selected product page
+@app.route("/spp/<int:id>")
+def selected_product(id):
+       # find the product with matching id
+    product = next((p for p in items if p["id"] == id), None)
+    if not product:
+        return "Product not found", 404
+
+    # find related products from same category
+    related = [p for p in items if p["category"] == product["category"] and p["id"] != id]
+
+    return render_template("selected_product_page.html", product=product, related=related)
+
+
 
 @app.route('/contact')
 def contact():
     return render_template('Contact_uspage.html')
 @app.route('/cart')
 def cart():
-    # Example cart items
+    # example cart items
     cart_items = [
         {'id': 1, 'name': 'Cappuccino', 'image': 'cappuccino.png', 'quantity': 2, 'price': 4.50},
         {'id': 2, 'name': 'Sandwich', 'image': 'sandwich.png', 'quantity': 1, 'price': 6.00}
@@ -35,6 +76,9 @@ def payment():
 @app.route('/feedback')
 def feedback():
     return "<h2>Feedback page coming soon!</h2>"
+@app.route('/order_confirmation')
+def order_confirmation():
+    return render_template('order_confirmation.html')
 
 # Run the development server
 if __name__ == '__main__':
