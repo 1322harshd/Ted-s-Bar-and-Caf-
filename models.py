@@ -5,13 +5,14 @@ class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     category = db.Column(db.String(20), nullable=True)
-
+    description = db.Column(db.Text, nullable=True)      
+    image_url = db.Column(db.String(300), nullable=True)
     def __repr__(self):
         return f"<Product {self.name}>"
 
 class Size(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), nullable=False)  # Small, Medium, Large
+    name = db.Column(db.String(20), nullable=False)  # Small, Medi
 
 class ProductPrice(db.Model):
     id = db.Column(db.Integer, primary_key=True)
