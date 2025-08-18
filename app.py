@@ -15,6 +15,44 @@ items = [
     {'name': 'Black Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
     {'name': 'Croissant', 'category': 'Pastry','img':'cappucino.png','price':'$5'}
 ]
+    {'id':1,'name': 'Espresso', 'category': 'hot-coffees','img':'cappucino.png','price':'$5'},
+    {'id':2,'name': 'Latte', 'category': 'hot-coffees','img':'cappucino.png','price':'$5'},
+    {'id':3,'name': 'Green Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
+    {'id':4,'name': 'Black Tea', 'category': 'Tea','img':'cappucino.png','price':'$5'},
+    {'id':5,'name': 'Croissant', 'category': 'Pastry','img':'cappucino.png','price':'$5'}
+]
+
+@app.route("/menu")
+def menu_page():
+    grouped_items = group_items(items)  # All items
+    return render_template("menu_page.html", grouped_items=grouped_items)
+
+@app.route("/filter/<category>")
+def filter_category(category):
+    filtered = [item for item in items if item['category'].lower() == category.lower()]
+    grouped_items = group_items(filtered)
+    return render_template("category.html", grouped_items=grouped_items)
+
+def group_items(item_list):
+    grouped = defaultdict(list)
+    for item in item_list:
+        grouped[item['category']].append(item)
+    return grouped
+
+# hardcoded selected product page
+@app.route("/spp/<int:id>")
+def selected_product(id):
+       # find the product with matching id
+    product = next((p for p in items if p["id"] == id), None)
+    if not product:
+        return "Product not found", 404
+
+    # find related products from same category
+    related = [p for p in items if p["category"] == product["category"] and p["id"] != id]
+
+    return render_template("selected_product_page.html", product=product, related=related)
+
+
 
 @app.route("/menu")
 def menu_page():
@@ -38,7 +76,7 @@ def contact():
     return render_template('Contact_uspage.html')
 @app.route('/cart')
 def cart():
-    # Example cart items
+    # example cart items
     cart_items = [
         {'id': 1, 'name': 'Cappuccino', 'image': 'cappuccino.png', 'quantity': 2, 'price': 4.50},
         {'id': 2, 'name': 'Sandwich', 'image': 'sandwich.png', 'quantity': 1, 'price': 6.00}
